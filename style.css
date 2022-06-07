@@ -40,6 +40,7 @@ body {
   top: 0;
   left: var(--checkbox-label-before-left);
 
+  display: block;
   width: var(--checkbox-side);
   height: var(--checkbox-side);
 
@@ -50,14 +51,16 @@ body {
 }
 
 .hexlet-checkbox-label:hover::before,
-.hexlet-checkbox-label:focus::before {
+.hexlet-checkboxl:focus ~ .hexlet-checkbox-label::before {
   background: var(--checkbox-checked);
-
   opacity: 0.5;
 }
 
-#checkbox:checked ~ .hexlet-checkbox-label::before {
+.hexlet-checkbox:checked ~ .hexlet-checkbox-label::before {
   background: var(--checkbox-checked);
+}
 
+.hexlet-checkbox:checked ~ .hexlet-checkbox-label:hover::before,
+.hexlet-checkboxl:checked:focus ~ .hexlet-checkbox-label::before {
   opacity: 1;
 }
