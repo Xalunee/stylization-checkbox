@@ -1,53 +1,63 @@
+:root {
+  /*
+    Переменная для свойства background. Здесь сокращённая запись свойств в таком порядке:
+    background-image
+    background-position / background-size
+    background-repeat
+    background-color
+  */
+  --checkbox-checked: url("check.png") center / 0.5rem no-repeat #288cff;
+  --checkbox-side: 1rem;
+  --checkbox-border: 1px solid #ced4da;
+  --checkbox-radius: 0.3rem;
+  --checkbox-label-before-left: -1.5rem;
+}
+
 body {
-  margin: 0;
+  font: 18px/1.5 sans-serif;
 
-  /* BEGIN (write your solution here) */
-  color: #333;
-  font-size: 18px;
-  /* END */
-  font-family: sans-serif;
-  line-height: 1.5;
+  background: #f8fafc;
 }
 
-/* BEGIN (write your solution here) */
-h1 {
-  margin-top: 50px;
-  margin-bottom: 10px;
-  font-size: 60px;
-  text-align: center;
+.hexlet-control {
+  padding-left: 2rem;
 }
 
-/* END */
+.hexlet-checkbox {
+  position: absolute;
 
-h2 {
-  /* BEGIN (write your solution here) */
-  margin-top: 0px;
-  padding-bottom: 30px;
-  font-size: 25px;
-  text-align: center;
-  /* END */
-
-  border-bottom: 2px solid #e3e3e3;
+  opacity: 0;
 }
 
-main {
-  width: 900px;
-  margin: auto;
+.hexlet-checkbox-label {
+  position: relative;
+
+  cursor: pointer;
 }
 
-/* BEGIN (write your solution here) */
-section {
-  margin: 50px 0px;
-  padding: 0px 50px;
+.hexlet-checkbox-label::before {
+  position: absolute;
+  top: 0;
+  left: var(--checkbox-label-before-left);
+
+  width: var(--checkbox-side);
+  height: var(--checkbox-side);
+
+  border: var(--checkbox-border);
+  border-radius: var(--checkbox-radius);
+
+  content: "";
 }
 
-section h2 {
-  padding: 0px;
-  border: none;
-  text-align: left;
+.hexlet-checkbox-label:hover::before,
+.hexlet-checkbox-label:focus::before {
+  background: var(--checkbox-checked);
+
+  opacity: 0.5;
 }
 
-section ul li {
-  margin-bottom: 10px;
+#checkbox:checked ~ .hexlet-checkbox-label::before {
+  background: var(--checkbox-checked);
+
+  opacity: 1;
 }
-/* END */
